@@ -17,7 +17,7 @@ class SendForgotEmailService {
         @inject('UsersRepository')
         private usersRepository: IUsersRepository,
 
-        @inject('IMailProvider')
+        @inject('MailProvider')
         private mailProvider: IMailProvider,
 
         @inject('UserTokensRepository')
