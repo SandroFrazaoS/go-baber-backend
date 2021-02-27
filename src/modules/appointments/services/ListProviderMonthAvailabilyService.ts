@@ -27,7 +27,7 @@ interface IRequest {
 // toco para type a interface para informar que vou retornar um array
 type IResponse = Array<{
     day: number;
-    avaliable: boolean;
+    available: boolean;
 }>;
 
 @injectable()
@@ -71,7 +71,7 @@ class ListProviderMonthAvailabilyService {
             // verifica se tenho menos de 10 agendamento, se tiver quer dizer que tenho disponivel
             return {
                 day,
-                avaliable: appointmentsInDay.length < 10,
+                available: appointmentsInDay.length < 10,
             };
         });
 
