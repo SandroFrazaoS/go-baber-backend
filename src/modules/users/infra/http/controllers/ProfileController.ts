@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import UpdateProfileService from '@modules/users/services/UpdateProfileService';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
@@ -15,15 +16,16 @@ export default class Profileconroller {
                 user_id,
             });
 
-            const userWithoutPassword = {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                created_at: user.created_at,
-                updated_at: user.updated_at,
-            };
+            //     const userWithoutPassword = {
+            //         id: user.id,
+            //         name: user.name,
+            //         email: user.email,
+            //         created_at: user.created_at,
+            //         updated_at: user.updated_at,
+            //     };
 
-            return response.json(userWithoutPassword);
+            //     return response.json(userWithoutPassword);
+            return response.json(classToClass(user));
         } catch (err) {
             return response.status(400).json({ error: err.message });
         }
@@ -47,15 +49,16 @@ export default class Profileconroller {
                 password,
             });
 
-            const userWithoutPassword = {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                created_at: user.created_at,
-                updated_at: user.updated_at,
-            };
+            // const userWithoutPassword = {
+            //     id: user.id,
+            //     name: user.name,
+            //     email: user.email,
+            //     created_at: user.created_at,
+            //     updated_at: user.updated_at,
+            // };
 
-            return response.json(userWithoutPassword);
+            // return response.json(userWithoutPassword);
+            return response.json(classToClass(user));
         } catch (err) {
             return response.status(400).json({ error: err.message });
         }
